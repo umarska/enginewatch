@@ -1,0 +1,19 @@
+{
+  "source": "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1",
+  "dataset": "NASA C-MAPSS FD001",
+  "zenodo_record": "https://zenodo.org/records/15346912",
+  "nasa_catalog": "https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data",
+  "archive_md5": "79a22f36e80606c69d0e9e4da5bb2b7a",
+  "archive_sha256": "74bef434a34db25c7bf72e668ea4cd52afe5f2cf8e44367c55a82bfd91a5a34f",
+  "archive_size_bytes": 12425978,
+  "files_sha256": {
+    "train_FD001.txt": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8",
+    "test_FD001.txt": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851",
+    "RUL_FD001.txt": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca"
+  },
+  "citation": "A. Saxena, K. Goebel, D. Simon, and N. Eklund, Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation, PHM 2008.",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_source": "https://zenodo.org/api/records/15346912 (metadata.license.id = cc-by-4.0)",
+  "license_note": "The rendered NASA/Zenodo pages omit a license, but the Zenodo record API explicitly declares CC BY 4.0. NASA attribution is preserved; full raw data is downloaded separately."
+}

@@ -1,0 +1,472 @@
+{
+  "dataset": "NASA C-MAPSS FD001",
+  "selected_model": "Gradient boosting",
+  "test_engines": 100,
+  "train_engines": 100,
+  "metrics": [
+    {
+      "model": "Age baseline",
+      "mae": 32.1075,
+      "rmse": 40.23257631416363,
+      "nasa_score": 25562.384124937824,
+      "validation_mae": 29.141666666666662,
+      "parameters": {
+        "description": "Engine-weighted mean lifetime minus observed age"
+      }
+    },
+    {
+      "model": "Ridge regression",
+      "mae": 22.201822710634552,
+      "rmse": 26.891734288272602,
+      "nasa_score": 2151.192178882582,
+      "validation_mae": 27.33956883942376,
+      "parameters": {
+        "alpha": 100.0
+      }
+    },
+    {
+      "model": "Gradient boosting",
+      "mae": 14.829776899158265,
+      "rmse": 21.48108010372507,
+      "nasa_score": 2439.5263459468542,
+      "validation_mae": 27.073831688882755,
+      "parameters": {
+        "max_iter": 240,
+        "max_leaf_nodes": 31,
+        "learning_rate": 0.07,
+        "l2_regularization": 10.0,
+        "min_samples_leaf": 25,
+        "early_stopping": false
+      }
+    }
+  ],
+  "interval": {
+    "nominal_coverage": 0.9,
+    "test_coverage": 0.97,
+    "mean_width": 101.6920084132198,
+    "calibration_engines": 20,
+    "radius": 56.13674103381578,
+    "finite_sample_quantile_rank": 19,
+    "guarantee_scope": "Marginal coverage under exchangeability of independent calibration/test endpoints, not a per-engine or simultaneous trajectory guarantee.",
+    "distribution_shift_note": "Calibration endpoints are uniformly truncated from 30..min(250,lifetime-1); the official publisher's truncation mechanism may differ. Empirical test coverage is reported, not guaranteed."
+  },
+  "split": {
+    "fit": 60,
+    "validation": 20,
+    "calibration": 20
+  },
+  "feature_count": 71,
+  "window": 20,
+  "schema_version": 1,
+  "seed": 42,
+  "selected_parameters": {
+    "max_iter": 240,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.07,
+    "l2_regularization": 10.0,
+    "min_samples_leaf": 25,
+    "early_stopping": false
+  },
+  "tuning": [
+    {
+      "model": "Age baseline",
+      "parameters": {
+        "description": "Engine-weighted mean lifetime minus observed age"
+      },
+      "validation": {
+        "mae": 29.141666666666662,
+        "rmse": 38.272179480952246,
+        "nasa_score": 2398.879015310317
+      }
+    },
+    {
+      "model": "Ridge regression",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "validation": {
+        "mae": 31.80339489151239,
+        "rmse": 39.707067378839724,
+        "nasa_score": 3855.972674303992
+      }
+    },
+    {
+      "model": "Ridge regression",
+      "parameters": {
+        "alpha": 100.0
+      },
+      "validation": {
+        "mae": 27.33956883942376,
+        "rmse": 33.95293071331741,
+        "nasa_score": 1025.2073064369993
+      }
+    },
+    {
+      "model": "Gradient boosting",
+      "parameters": {
+        "max_iter": 180,
+        "max_leaf_nodes": 15,
+        "learning_rate": 0.07,
+        "l2_regularization": 5.0,
+        "min_samples_leaf": 25,
+        "early_stopping": false
+      },
+      "validation": {
+        "mae": 28.512686012133013,
+        "rmse": 36.14057769304618,
+        "nasa_score": 6921.480503668825
+      }
+    },
+    {
+      "model": "Gradient boosting",
+      "parameters": {
+        "max_iter": 240,
+        "max_leaf_nodes": 31,
+        "learning_rate": 0.07,
+        "l2_regularization": 10.0,
+        "min_samples_leaf": 25,
+        "early_stopping": false
+      },
+      "validation": {
+        "mae": 27.073831688882755,
+        "rmse": 35.419149225010905,
+        "nasa_score": 22154.820887468668
+      }
+    },
+    {
+      "model": "Gradient boosting",
+      "parameters": {
+        "max_iter": 240,
+        "max_leaf_nodes": 15,
+        "learning_rate": 0.07,
+        "l2_regularization": 30.0,
+        "min_samples_leaf": 25,
+        "early_stopping": false
+      },
+      "validation": {
+        "mae": 27.87495979926684,
+        "rmse": 35.58107000227083,
+        "nasa_score": 13191.668114158663
+      }
+    }
+  ],
+  "data": {
+    "training_rows": 20631,
+    "test_rows": 13096,
+    "training_lifetime_min": 128,
+    "training_lifetime_max": 362,
+    "provenance": {
+      "source": "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1",
+      "dataset": "NASA C-MAPSS FD001",
+      "zenodo_record": "https://zenodo.org/records/15346912",
+      "nasa_catalog": "https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data",
+      "archive_md5": "79a22f36e80606c69d0e9e4da5bb2b7a",
+      "archive_sha256": "74bef434a34db25c7bf72e668ea4cd52afe5f2cf8e44367c55a82bfd91a5a34f",
+      "archive_size_bytes": 12425978,
+      "files_sha256": {
+        "train_FD001.txt": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8",
+        "test_FD001.txt": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851",
+        "RUL_FD001.txt": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca"
+      },
+      "citation": "A. Saxena, K. Goebel, D. Simon, and N. Eklund, Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation, PHM 2008.",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_source": "https://zenodo.org/api/records/15346912 (metadata.license.id = cc-by-4.0)",
+      "license_note": "The rendered NASA/Zenodo pages omit a license, but the Zenodo record API explicitly declares CC BY 4.0. NASA attribution is preserved; full raw data is downloaded separately."
+    }
+  },
+  "split_ids": {
+    "seed": 42,
+    "fit_engine_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      11,
+      18,
+      19,
+      21,
+      22,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      33,
+      34,
+      38,
+      39,
+      40,
+      41,
+      43,
+      44,
+      46,
+      47,
+      51,
+      52,
+      53,
+      57,
+      58,
+      60,
+      62,
+      64,
+      69,
+      71,
+      72,
+      74,
+      76,
+      77,
+      79,
+      80,
+      81,
+      82,
+      84,
+      85,
+      87,
+      88,
+      90,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      100
+    ],
+    "validation_engine_ids": [
+      10,
+      16,
+      17,
+      31,
+      32,
+      35,
+      45,
+      49,
+      55,
+      56,
+      59,
+      61,
+      63,
+      68,
+      70,
+      73,
+      75,
+      83,
+      89,
+      99
+    ],
+    "calibration_engine_ids": [
+      7,
+      9,
+      12,
+      13,
+      14,
+      15,
+      20,
+      23,
+      36,
+      37,
+      42,
+      48,
+      50,
+      54,
+      65,
+      66,
+      67,
+      78,
+      86,
+      91
+    ]
+  },
+  "feature_columns": [
+    "cycle",
+    "sensor_2__last",
+    "sensor_2__mean",
+    "sensor_2__std",
+    "sensor_2__trend",
+    "sensor_2__baseline_delta",
+    "sensor_3__last",
+    "sensor_3__mean",
+    "sensor_3__std",
+    "sensor_3__trend",
+    "sensor_3__baseline_delta",
+    "sensor_4__last",
+    "sensor_4__mean",
+    "sensor_4__std",
+    "sensor_4__trend",
+    "sensor_4__baseline_delta",
+    "sensor_7__last",
+    "sensor_7__mean",
+    "sensor_7__std",
+    "sensor_7__trend",
+    "sensor_7__baseline_delta",
+    "sensor_8__last",
+    "sensor_8__mean",
+    "sensor_8__std",
+    "sensor_8__trend",
+    "sensor_8__baseline_delta",
+    "sensor_9__last",
+    "sensor_9__mean",
+    "sensor_9__std",
+    "sensor_9__trend",
+    "sensor_9__baseline_delta",
+    "sensor_11__last",
+    "sensor_11__mean",
+    "sensor_11__std",
+    "sensor_11__trend",
+    "sensor_11__baseline_delta",
+    "sensor_12__last",
+    "sensor_12__mean",
+    "sensor_12__std",
+    "sensor_12__trend",
+    "sensor_12__baseline_delta",
+    "sensor_13__last",
+    "sensor_13__mean",
+    "sensor_13__std",
+    "sensor_13__trend",
+    "sensor_13__baseline_delta",
+    "sensor_14__last",
+    "sensor_14__mean",
+    "sensor_14__std",
+    "sensor_14__trend",
+    "sensor_14__baseline_delta",
+    "sensor_15__last",
+    "sensor_15__mean",
+    "sensor_15__std",
+    "sensor_15__trend",
+    "sensor_15__baseline_delta",
+    "sensor_17__last",
+    "sensor_17__mean",
+    "sensor_17__std",
+    "sensor_17__trend",
+    "sensor_17__baseline_delta",
+    "sensor_20__last",
+    "sensor_20__mean",
+    "sensor_20__std",
+    "sensor_20__trend",
+    "sensor_20__baseline_delta",
+    "sensor_21__last",
+    "sensor_21__mean",
+    "sensor_21__std",
+    "sensor_21__trend",
+    "sensor_21__baseline_delta"
+  ],
+  "target": "Uncapped lifetime minus cycle; nonnegative predictions.",
+  "feature_recipe": "Cycle plus14 sensor groups: current reading, trailing20 mean/std, endpoint trend per cycle, deviation from first5 available mean. Only current/past observations.",
+  "endpoint_sampling": {
+    "validation_seed": 43,
+    "calibration_seed": 44,
+    "method": "One uniformly sampled cycle30..min(250,lifetime-1) per independent held-out engine; official test distribution not consulted."
+  },
+  "engine_weighting": "Each training engine has equal total weight regardless of trajectory length.",
+  "model_selection": "Minimum validation endpoint MAE; family winners refit on80 fit+validation engines.20 calibration engines stay untouched.",
+  "feature_importance": [
+    {
+      "sensor": "sensor_11",
+      "label": "Static HPC outlet pressure (Ps30)",
+      "importance": 2.1937,
+      "std": 0.5242
+    },
+    {
+      "sensor": "sensor_3",
+      "label": "HPC outlet temperature (T30)",
+      "importance": 1.9906,
+      "std": 0.5374
+    },
+    {
+      "sensor": "sensor_14",
+      "label": "Corrected core speed (NRc)",
+      "importance": 1.4657,
+      "std": 0.6707
+    },
+    {
+      "sensor": "sensor_7",
+      "label": "HPC outlet pressure (P30)",
+      "importance": 1.3928,
+      "std": 0.8745
+    },
+    {
+      "sensor": "sensor_4",
+      "label": "LPT outlet temperature (T50)",
+      "importance": 1.3536,
+      "std": 0.4577
+    },
+    {
+      "sensor": "sensor_15",
+      "label": "Bypass ratio (BPR)",
+      "importance": 0.8675,
+      "std": 0.377
+    },
+    {
+      "sensor": "sensor_2",
+      "label": "LPC outlet temperature (T24)",
+      "importance": 0.8501,
+      "std": 0.268
+    },
+    {
+      "sensor": "sensor_13",
+      "label": "Corrected fan speed (NRf)",
+      "importance": 0.8443,
+      "std": 0.5648
+    },
+    {
+      "sensor": "sensor_12",
+      "label": "Fuel flow / pressure ratio (phi)",
+      "importance": 0.7016,
+      "std": 0.3129
+    },
+    {
+      "sensor": "sensor_21",
+      "label": "LPT coolant bleed (W32)",
+      "importance": 0.5826,
+      "std": 0.4274
+    },
+    {
+      "sensor": "sensor_20",
+      "label": "HPT coolant bleed (W31)",
+      "importance": 0.5346,
+      "std": 0.2986
+    },
+    {
+      "sensor": "sensor_17",
+      "label": "Bleed enthalpy (htBleed)",
+      "importance": 0.1606,
+      "std": 0.1871
+    },
+    {
+      "sensor": "sensor_8",
+      "label": "Fan speed (Nf)",
+      "importance": -0.4593,
+      "std": 0.392
+    },
+    {
+      "sensor": "sensor_9",
+      "label": "Core speed (Nc)",
+      "importance": -0.5451,
+      "std": 0.6181
+    }
+  ],
+  "explanation_method": "Endpoint sensitivity = prediction after replacing one sensor group's5 features with fitted training medians minus original prediction. Non-additive and not causal.",
+  "limitations": [
+    "Simulation with one condition and one fault mode; no real-aircraft validation.",
+    "Only20 calibration engines: coarse, wide intervals and sensitivity to truncation distribution.",
+    "Intervals calibrated for endpoints; replay intervals have no simultaneous trajectory coverage guarantee.",
+    "Uncapped early-life RUL has intrinsic uncertainty from unknown initial wear.",
+    "Grouped permutation and substitution describe model behavior; sensor correlation prevents causal interpretation."
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1"
+  },
+  "trained_at_utc": "2026-10-05T16:35:20.640922+00:00",
+  "training_seconds": 49.783,
+  "model_sha256": "b2a8a6a124ea66d4a088977a9d1a194ebec49668126bdf1eba0e3ec3d8890faf"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "EngineWatch",
+  "intended_use": "Educational predictive-maintenance simulation and reproducible benchmark.",
+  "excluded_use": "Operational aviation or maintenance decisions.",
+  "results": {
+    "dataset": "NASA C-MAPSS FD001",
+    "selected_model": "Gradient boosting",
+    "test_engines": 100,
+    "train_engines": 100,
+    "metrics": [
+      {
+        "model": "Age baseline",
+        "mae": 32.1075,
+        "rmse": 40.23257631416363,
+        "nasa_score": 25562.384124937824,
+        "validation_mae": 29.141666666666662,
+        "parameters": {
+          "description": "Engine-weighted mean lifetime minus observed age"
+        }
+      },
+      {
+        "model": "Ridge regression",
+        "mae": 22.201822710634552,
+        "rmse": 26.891734288272602,
+        "nasa_score": 2151.192178882582,
+        "validation_mae": 27.33956883942376,
+        "parameters": {
+          "alpha": 100.0
+        }
+      },
+      {
+        "model": "Gradient boosting",
+        "mae": 14.829776899158265,
+        "rmse": 21.48108010372507,
+        "nasa_score": 2439.5263459468542,
+        "validation_mae": 27.073831688882755,
+        "parameters": {
+          "max_iter": 240,
+          "max_leaf_nodes": 31,
+          "learning_rate": 0.07,
+          "l2_regularization": 10.0,
+          "min_samples_leaf": 25,
+          "early_stopping": false
+        }
+      }
+    ],
+    "interval": {
+      "nominal_coverage": 0.9,
+      "test_coverage": 0.97,
+      "mean_width": 101.6920084132198,
+      "calibration_engines": 20,
+      "radius": 56.13674103381578,
+      "finite_sample_quantile_rank": 19,
+      "guarantee_scope": "Marginal coverage under exchangeability of independent calibration/test endpoints, not a per-engine or simultaneous trajectory guarantee.",
+      "distribution_shift_note": "Calibration endpoints are uniformly truncated from 30..min(250,lifetime-1); the official publisher's truncation mechanism may differ. Empirical test coverage is reported, not guaranteed."
+    },
+    "split": {
+      "fit": 60,
+      "validation": 20,
+      "calibration": 20
+    },
+    "feature_count": 71,
+    "window": 20
+  },
+  "limitations": [
+    "Simulation with one condition and one fault mode; no real-aircraft validation.",
+    "Only20 calibration engines: coarse, wide intervals and sensitivity to truncation distribution.",
+    "Intervals calibrated for endpoints; replay intervals have no simultaneous trajectory coverage guarantee.",
+    "Uncapped early-life RUL has intrinsic uncertainty from unknown initial wear.",
+    "Grouped permutation and substitution describe model behavior; sensor correlation prevents causal interpretation."
+  ],
+  "data": {
+    "source": "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1",
+    "dataset": "NASA C-MAPSS FD001",
+    "zenodo_record": "https://zenodo.org/records/15346912",
+    "nasa_catalog": "https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data",
+    "archive_md5": "79a22f36e80606c69d0e9e4da5bb2b7a",
+    "archive_sha256": "74bef434a34db25c7bf72e668ea4cd52afe5f2cf8e44367c55a82bfd91a5a34f",
+    "archive_size_bytes": 12425978,
+    "files_sha256": {
+      "train_FD001.txt": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8",
+      "test_FD001.txt": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851",
+      "RUL_FD001.txt": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca"
+    },
+    "citation": "A. Saxena, K. Goebel, D. Simon, and N. Eklund, Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation, PHM 2008.",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://zenodo.org/api/records/15346912 (metadata.license.id = cc-by-4.0)",
+    "license_note": "The rendered NASA/Zenodo pages omit a license, but the Zenodo record API explicitly declares CC BY 4.0. NASA attribution is preserved; full raw data is downloaded separately."
+  },
+  "explanations": "Endpoint sensitivity = prediction after replacing one sensor group's5 features with fitted training medians minus original prediction. Non-additive and not causal."
+}
