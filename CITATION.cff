@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use EngineWatch, cite this software and acknowledge the NASA C-MAPSS dataset listed in DATA_LICENSE.md."
+type: software
+title: "EngineWatch: Explainable Remaining-Life Forecasting"
+version: 1.0.0
+date-released: 2026-10-05
+authors:
+  - name: umarska
+repository-code: "https://github.com/umarska/enginewatch"
+license: MIT
